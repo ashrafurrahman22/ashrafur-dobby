@@ -45,9 +45,14 @@ const Signup = () => {
   }
 
   const onSubmit = async (data) => {
-    await createUserWithEmailAndPassword(data.email, data.password);
-    await updateProfile({ displayName: data.name });
-    console.log("update done");
+    if(data.firstPassword !== data.password ){
+      alert("password didn't match")
+    }
+    else{
+      await createUserWithEmailAndPassword(data.email, data.password);
+    }
+    // await updateProfile({ displayName: data.name });
+    // console.log("update done");
   };
 
     return (
@@ -76,7 +81,7 @@ const Signup = () => {
             <img className='w-12 p-2' src="https://www.freeiconspng.com/uploads/facebook-png-icon-follow-us-facebook-1.png" alt="" />
             <p className='text-center'>Continue with Facebook</p>
         </div> */}
-        <div className='border border-gray-400 rounded-full mt-3 flex justify-center px-10 items-center'>
+        <div onClick={() => signInWithGoogle()} className='border cursor-pointer border-gray-400 rounded-full mt-3 flex justify-center px-10 items-center'>
             <img className='w-12 p-2' src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png" alt="" />
             <p>Continue with Google</p>
         </div>

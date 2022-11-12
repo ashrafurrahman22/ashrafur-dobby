@@ -47,7 +47,7 @@ const Footer = () => {
                 
                 <hr className='mb-5' />
             <div className='text-white max-w-7xl text-center pb-8'>
-            <p style={{letterSpacing:"1px"}} >Copyright © 2022 | Powered by Dubby Ads Industries Ltd</p>
+            <p style={{letterSpacing:"1px"}} >Copyright © 2022 | Powered by Dobby Ads Industries Ltd</p>
              </div>
         
                </div>

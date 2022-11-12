@@ -1,9 +1,12 @@
 import React from 'react';
+import Data from './Data';
+import Form from './Form';
 
 const Home = () => {
     return (
         <div>
-            <h2>This is Home</h2>
+            <Form/>
+            <Data/>
         </div>
     );
 };

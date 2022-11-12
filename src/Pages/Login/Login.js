@@ -63,7 +63,7 @@ const Login = () => {
             <img className='w-12 p-2' src="https://www.freeiconspng.com/uploads/facebook-png-icon-follow-us-facebook-1.png" alt="" />
             <p className='text-center'>Continue with Facebook</p>
         </div> */}
-        <div className='border border-gray-400 rounded-full mt-3 flex justify-center px-10 items-center'>
+        <div onClick={() => signInWithGoogle()} className='border cursor-pointer border-gray-400 rounded-full mt-3 flex justify-center px-10 items-center'>
             <img className='w-12 p-2' src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png" alt="" />
             <p>Continue with Google</p>
         </div>

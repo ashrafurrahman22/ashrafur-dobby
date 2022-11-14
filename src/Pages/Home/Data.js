@@ -5,16 +5,16 @@ const Data = () => {
 
     const [data, setData] = useState([]);
 
-    useEffect( () =>{
-        fetch("http://localhost:5000/data")
-        .then(res=>res.json())
-        .then(data => setData(data))
-    } , [])
+    // useEffect( () =>{
+    //     fetch("http://localhost:5000/data")
+    //     .then(res=>res.json())
+    //     .then(data => setData(data))
+    // } , [])
 
     return (
         <div>
             {
-                data.map(singleData=> console.log(singleData.img)
+                data?.map(singleData=> console.log(singleData.img)
                 
                 
                 )

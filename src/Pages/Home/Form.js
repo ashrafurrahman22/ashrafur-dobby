@@ -7,11 +7,12 @@ const Form = () => {
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
-      axios.post('http://localhost:5000/data', data)
+      console.log(data)
+      axios.post('http://localhost:5000/upload', data)
       .then(response =>{
         const {data} = response;
         console.log(response);
-          if(data.insertedId){
+          if(data.status){
           reset();
           toast.success('Successfully submitted 👍');
           }
@@ -19,39 +20,22 @@ const Form = () => {
     };
 
     return (
-        <div className="mt-12 text-center">
-        {/* <p className="text-xl">Contact</p> */}
-        <h1 className="text-3xl font-semibold">
-          Let us handle your <br />
-          project, professionally.
-        </h1>
+      <div style={{
+        fontFamily:"Montserrat"
+    }} className='flex justify-center items-center py-14'>
+        <div>
+        <div className="card card-body text-black border border-black rounded shadow-sm w-96">
+            <h1 className='font-semibold text-lg'>Upload</h1>
+        <form className='flex flex-col gap-4' onSubmit={handleSubmit(onSubmit)}>
+        <label for="myfile">Name:</label>
+  <input className='border-b p-2 border-gray-400' placeholder='Name' type="text" {...register("name")} />
   
-        <div className="py-10">
-          <form onSubmit={handleSubmit(onSubmit)} className="flex justify-center flex-col items-center">
-            
-            <div className="flex gap-5">
-            <input className="bg-base-300 px-8 py-3 rounded" placeholder="First Name" {...register("firstName")} />
-            <input placeholder="Last Name" className="bg-base-300 px-8 py-3 rounded" {...register("lastName", { required: true })} />
-            </div>
-            <div className="flex gap-5 py-3">
-            <input type='email' className="bg-base-300 px-8 py-3 rounded" placeholder="Email Address" {...register("email")} />
-            <input placeholder="Phone" className="bg-base-300 px-8 py-3 rounded" {...register("phone", { required: true })} />
-            
-            </div>
+  <label for="myfile">Select a file:</label>
+<input type="file" id="file" {...register("fileName")}></input>
 
-            <div className='flex items-center gap-5'>
-            <label for="img">Select your project image:</label>
-            <input className='my-4' type="file" id="img" name="img" accept="image/*" {...register("img", { required: true })}   />
-            </div>
-            
-  
-            {/* <textarea placeholder="Your Message" className="bg-base-300 p-4 mb-3 rounded" name="message" id="" cols="64" rows="6" {...register("message", { required: true })}></textarea> */}
-  
-  
-            {errors.email && <span>This field is required</span>}
-  
-            <input type="submit" value="Submit" className="btn bg-blue-900 w-32 border-none normal-case font-light" />
-          </form>
+  <input className='btn bg-blue-900 w-full mx-auto border-none normal-case font-light' type="submit" value="Upload" />
+</form>
+        </div>
         </div>
       </div>
     );
